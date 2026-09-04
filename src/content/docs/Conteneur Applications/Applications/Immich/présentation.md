@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation d'Immich"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce qu'Immich ?

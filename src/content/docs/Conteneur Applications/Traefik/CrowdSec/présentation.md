@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation de CrowdSec"
+sidebar:
+  order: 10
 ---
 
 ## Qu'est-ce que CrowdSec ?

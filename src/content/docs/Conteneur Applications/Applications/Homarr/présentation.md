@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation de Homarr"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce que Homarr ?

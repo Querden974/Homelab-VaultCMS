@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation d'Authentik"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce qu'Authentik ?

@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation de Passbolt"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce que Passbolt ?

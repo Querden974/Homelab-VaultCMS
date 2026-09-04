@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation d'IT-Tools"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce qu'IT-Tools ?

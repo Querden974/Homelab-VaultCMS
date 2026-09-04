@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation de BentoPDF"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce que BentoPDF ?

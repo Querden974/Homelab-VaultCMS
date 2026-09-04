@@ -1,5 +1,5 @@
 {
-  "commitMessage": "Blog update {{date}}: {{numFiles}} file(s) changed.",
+  "commitMessage": "content update {{date}}: {{numFiles}} file(s) changed.",
   "autoCommitMessage": "Blog update {{date}}: {{numFiles}} file(s) changed.",
   "commitMessageScript": "",
   "commitDateFormat": "M/D/YYYY h:ma",

@@ -3,18 +3,18 @@
 // Schéma d'architecture du homelab — s'adapte à la colonne de contenu Starlight,
 // aux thèmes clair/sombre et au mobile.
 const apps = [
-  ["Homarr", "Tableau de bord des services"],
-  ["Immich", "Photos & vidéos auto-hébergées"],
-  ["Passbolt CE", "Coffre-fort de mots de passe"],
-  ["BentoPDF", "Manipulation de fichiers PDF"],
-  ["It-Tools", "Boîte à outils pour l'admin"],
-  ["Dockhand", "Gestion des conteneurs Docker"],
-  ["Traefik Manager", "Édition des routes et middlewares"],
-  ["Alloy", "Collecte logs & métriques"],
+  ["Homarr", "Tableau de bord des services", "/conteneur-applications/homarr/présentation/"],
+  ["Immich", "Photos & vidéos auto-hébergées", "/conteneur-applications/applications/immich/présentation/"],
+  ["Passbolt CE", "Coffre-fort de mots de passe", "/conteneur-applications/applications/passbolt/présentation/"],
+  ["BentoPDF", "Manipulation de fichiers PDF", "/conteneur-applications/applications/bentopdf/présentation/"],
+  ["It-Tools", "Boîte à outils pour l'admin", "/conteneur-applications/applications/it-tools/présentation/"],
+  ["Dockhand", "Gestion des conteneurs Docker", "/conteneur-applications/dockhand/présentation/"],
+  ["Traefik Manager", "Édition des routes et middlewares", "/conteneur-applications/traefik/traefik-manager/présentation/"],
+  ["Alloy", "Collecte logs & métriques", "/conteneur-applications/alloy/présentation/"],
 ];
 const middlewares = [
-  ["Crowdsec", "Détection et bannissement d'IP"],
-  ["Authentik", "SSO / forward auth"],
+  ["Crowdsec", "Détection et bannissement d'IP", "/conteneur-applications/traefik/crowdsec/présentation/"],
+  ["Authentik", "SSO / forward auth", "/conteneur-applications/authentik/présentation/"],
 ];
 const paths = [
   ["Chemin public", "Internet → Traefik → Crowdsec → Authentik → app"],
@@ -50,16 +50,21 @@ const paths = [
     </header>
 
     <div class="hl-stack">
-      <article class="hl-card hl-card--lead">
+      <a href="/conteneur-applications/traefik/présentation/" class="hl-link">
+        <article class="hl-card hl-card--lead">
         <h4>Traefik <span class="hl-muted">Reverse proxy</span></h4>
         <p>Point d'entrée unique : routage par sous-domaine, TLS automatique, découverte des conteneurs Docker.</p>
       </article>
+      </a>
+
 
       <section class="hl-band hl-band--mw">
         <h4 class="hl-band-title">Middlewares Traefik</h4>
         <div class="hl-grid hl-grid--2">
-          {middlewares.map(([name, desc]) => (
-            <article class="hl-item"><h5>{name}</h5><p>{desc}</p></article>
+          {middlewares.map(([name, desc, link]) => (
+            <a href={link} class="hl-link">
+              <article class="hl-item"><h5>{name}</h5><p>{desc}</p></article>
+            </a>
           ))}
         </div>
       </section>
@@ -67,8 +72,10 @@ const paths = [
       <section class="hl-band hl-band--apps">
         <h4 class="hl-band-title">Applications — conteneurs Docker</h4>
         <div class="hl-grid hl-grid--2">
-          {apps.map(([name, desc]) => (
-            <article class="hl-item"><h5>{name}</h5><p>{desc}</p></article>
+          {apps.map(([name, desc, link]) => (
+            <a href={link} class="hl-link">
+              <article class="hl-item"><h5>{name}</h5><p>{desc}</p></article>
+            </a>
           ))}
         </div>
       </section>
@@ -83,6 +90,9 @@ const paths = [
 </figure>
 
 <style>
+
+
+
   .hl {
     --hl-vpn: light-dark(#5965c4, #7a86e8);
     --hl-mw: light-dark(#c07a4e, #d68e5e);
@@ -101,6 +111,7 @@ const paths = [
   figure.hl :is(h3, h4, h5) {
     font-weight: 600;
     line-height: 1.3;
+    
     color: light-dark(#12172b, #e2e5f2);
   }
   figure.hl h3 { font-size: var(--sl-text-base); }
@@ -112,6 +123,29 @@ const paths = [
   }
   figure.hl a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
   figure.hl a:hover { color: var(--hl-vpn); }
+
+  figure.hl a.hl-link {
+    display: block;
+    height: 100%;
+    border-radius: 0.4rem;
+    outline-offset: 2px;
+  }
+  figure.hl a.hl-link :is(.hl-card, .hl-item) {
+    height: 100%;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+  figure.hl a.hl-link:hover :is(.hl-card, .hl-item),
+  figure.hl a.hl-link:focus-visible :is(.hl-card, .hl-item) {
+    border-color: var(--hl-vpn);
+    background: color-mix(in oklab, var(--hl-vpn) 18%, var(--sl-color-gray-6));
+  }
+  figure.hl a.hl-link:hover :is(h4, h5),
+  figure.hl a.hl-link:focus-visible :is(h4, h5) {
+    color: var(--hl-vpn);
+  }
+  figure.hl a.hl-link:focus-visible {
+    outline: 2px solid var(--hl-vpn);
+  }
 
   .hl-zone {
     border: 1px solid var(--sl-color-gray-5);
@@ -143,7 +177,12 @@ const paths = [
   .hl-tag--solid { padding: 0.15rem 0.45rem; border-radius: 0.25rem; background: var(--sl-color-gray-6); color: var(--sl-color-white); letter-spacing: 0.04em; text-transform: none; }
   .hl-chip { padding: 0.1rem 0.35rem; border-radius: 0.25rem; background: color-mix(in oklab, var(--hl-vpn) 25%, transparent); color: var(--sl-color-white); }
 
-  .hl-stack { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem; }
+  .hl-stack {
+    display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem;
+  }
+  figure.hl .hl-stack a {
+    text-decoration: none;
+  }
   .hl-grid { display: grid; gap: 0.6rem; padding: 0.9rem; }
   .hl-band .hl-grid, .hl > .hl-grid { padding: 0; }
   .hl-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }

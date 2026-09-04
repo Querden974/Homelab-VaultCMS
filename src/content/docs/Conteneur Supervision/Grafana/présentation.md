@@ -1,6 +1,9 @@
 ---
-title: "Présentation"
-description: "Présentation de Grafana"
+title: Présentation
+description: Présentation de Grafana
+sidebar:
+  order: 0
+draft: true
 ---
 
 ## Qu'est-ce que Grafana ?

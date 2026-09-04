@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation de Prometheus"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce que Prometheus ?

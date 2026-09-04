@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation de Grafana Alloy"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce qu'Alloy ?

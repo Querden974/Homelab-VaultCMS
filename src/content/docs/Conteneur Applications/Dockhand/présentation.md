@@ -1,6 +1,8 @@
 ---
 title: "Présentation"
 description: "Présentation de Dockhand"
+sidebar:
+  order: 0
 ---
 
 ## Qu'est-ce que Dockhand ?

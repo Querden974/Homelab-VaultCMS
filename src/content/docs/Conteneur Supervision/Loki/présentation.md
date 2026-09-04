@@ -1,6 +1,9 @@
 ---
-title: "Présentation"
-description: "Présentation de Loki"
+title: Présentation
+description: Présentation de Loki
+sidebar:
+  order: 0
+draft: true
 ---
 
 ## Qu'est-ce que Loki ?
