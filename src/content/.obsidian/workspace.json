@@ -1,0 +1,219 @@
+{
+  "main": {
+    "id": "6e95e2dbfc8769ed",
+    "type": "split",
+    "children": [
+      {
+        "id": "3ca56a3097eb9a53",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "722b9730c82da052",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "_bases/Home.base",
+                "viewName": "Guides"
+              },
+              "pinned": true,
+              "icon": "lucide-home",
+              "title": "Home"
+            }
+          },
+          {
+            "id": "7af22be9615c6698",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/general/index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          },
+          {
+            "id": "41319b29e08f3f87",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/general/index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3095fb754b16d69c",
+    "type": "split",
+    "children": [
+      {
+        "id": "a32c142b19488b8a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "82b1396f38c2aef7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorateur de fichiers"
+            }
+          },
+          {
+            "id": "7153a32c1725ac08",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Rechercher"
+            }
+          },
+          {
+            "id": "55ba88dc30e6ac30",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Signets"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "70323b78863a2dbc",
+    "type": "split",
+    "children": [
+      {
+        "id": "518bb789bed07f91",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "783d3785a29ad129",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Mots-clés"
+            }
+          },
+          {
+            "id": "3bd03248e8259c42",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/general/index.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Plan"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Ouvrir le sélecteur rapide": false,
+      "command-palette:Ouvrir la palette de commandes": false,
+      "bases:Créer une nouvelle base": false,
+      "seo:Open SEO audit panel": false,
+      "astro-composer:Open project terminal": false,
+      "astro-composer:Edit Astro config": false,
+      "home-base:Open home base": false,
+      "obsidian-git:Open Git source control": false,
+      "zenmode:Toggle zen mode": false,
+      "obsidian42-brat:BRAT": false,
+      "omnisearch:Omnisearch": false
+    }
+  },
+  "active": "82b1396f38c2aef7",
+  "lastOpenFiles": [
+    "docs/Conteneur Applications - Copie/Wireguard/présentation.md",
+    "docs/Conteneur Applications - Copie/Wireguard",
+    "docs/Conteneur Applications - Copie/Traefik/Traefik Manager",
+    "docs/Conteneur Applications - Copie/Traefik/présentation.md",
+    "docs/Conteneur Applications - Copie/Traefik",
+    "docs/Conteneur Applications - Copie/Homarr/présentation.md",
+    "docs/Conteneur Applications - Copie/Homarr",
+    "docs/Conteneur Applications - Copie/Authentik/présentation.md",
+    "docs/Conteneur Applications - Copie/Authentik",
+    "docs/Conteneur Applications - Copie/Dockhand/présentation.md",
+    "docs/Conteneur Applications - Copie/Dockhand",
+    "docs/Conteneur Applications - Copie/CrowdSec/présentation.md",
+    "docs/Conteneur Applications - Copie/CrowdSec",
+    "docs/Conteneur Applications - Copie/Applications/Passbolt/présentation.md",
+    "docs/Conteneur Applications - Copie/Applications/IT-Tools/présentation.md",
+    "docs/Conteneur Applications - Copie/Applications/Immich/présentation.md",
+    "docs/Conteneur Applications - Copie/Applications/BentoPDF/présentation.md",
+    "docs/Conteneur Applications - Copie/Applications/Passbolt",
+    "docs/Conteneur Applications - Copie/Applications/IT-Tools",
+    "docs/Conteneur Applications - Copie/Applications/Immich",
+    "docs/Conteneur Applications - Copie/Alloy/présentation.md",
+    "docs/Conteneur Applications/Alloy/présentation.md",
+    "docs/Conteneur Applications/Authentik/présentation.md",
+    "docs/Conteneur Applications/Wireguard/présentation.md",
+    "docs/Conteneur Applications/Traefik/présentation.md",
+    "docs/Conteneur Applications/Homarr/présentation.md",
+    "docs/Conteneur Applications/Dockhand/présentation.md",
+    "docs/Conteneur Applications/CrowdSec/présentation.md",
+    "docs/Conteneur Applications/Applications/Passbolt/présentation.md",
+    "docs/Conteneur Applications/Applications/IT-Tools/présentation.md",
+    "docs/Conteneur Applications/Applications/Immich/présentation.md",
+    "docs/Conteneur Applications/Applications/BentoPDF/présentation.md",
+    "docs/Conteneur Applications/Applications/BentoPDF/présentation 1.md",
+    "docs/general/hardware.md",
+    "docs/Conteneur Applications/index.md",
+    "Sans titre.md"
+  ]
+}
