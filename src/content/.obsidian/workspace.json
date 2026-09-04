@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "6e95e2dbfc8769ed",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "3ca56a3097eb9a53",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "722b9730c82da052",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "pinned": true,
             "state": {
@@ -23,37 +23,22 @@
             }
           },
           {
-            "id": "7af22be9615c6698",
+            "id": "89c1a6fc8f3a221f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/general/index.md",
+                "file": "docs/general/représentation-du-lab.mdx",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "index"
-            }
-          },
-          {
-            "id": "41319b29e08f3f87",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/general/index.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "index"
+              "title": "représentation-du-lab"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -177,28 +162,33 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "82b1396f38c2aef7",
+  "active": "89c1a6fc8f3a221f",
   "lastOpenFiles": [
+    "docs/index.mdx",
+    "docs/general/représentation-du-lab.mdx",
+    "docs/general/représentation-du-lab.md",
+    "images/schema-homelab.png",
+    "docs/Schema Homelab.html",
+    "docs/reference/Schema Homelab.html",
+    "Schema Homelab 1.html",
+    "Schema Homelab.html",
+    "images/homelab (1).jpg",
+    "images",
+    "_GUIDE.md",
+    "_bases/Home.base",
+    "docs/general/index.md",
     "docs/Conteneur Applications - Copie/Wireguard/présentation.md",
     "docs/Conteneur Applications - Copie/Wireguard",
     "docs/Conteneur Applications - Copie/Traefik/Traefik Manager",
     "docs/Conteneur Applications - Copie/Traefik/présentation.md",
-    "docs/Conteneur Applications - Copie/Traefik",
     "docs/Conteneur Applications - Copie/Homarr/présentation.md",
-    "docs/Conteneur Applications - Copie/Homarr",
     "docs/Conteneur Applications - Copie/Authentik/présentation.md",
-    "docs/Conteneur Applications - Copie/Authentik",
     "docs/Conteneur Applications - Copie/Dockhand/présentation.md",
-    "docs/Conteneur Applications - Copie/Dockhand",
     "docs/Conteneur Applications - Copie/CrowdSec/présentation.md",
-    "docs/Conteneur Applications - Copie/CrowdSec",
     "docs/Conteneur Applications - Copie/Applications/Passbolt/présentation.md",
     "docs/Conteneur Applications - Copie/Applications/IT-Tools/présentation.md",
     "docs/Conteneur Applications - Copie/Applications/Immich/présentation.md",
     "docs/Conteneur Applications - Copie/Applications/BentoPDF/présentation.md",
-    "docs/Conteneur Applications - Copie/Applications/Passbolt",
-    "docs/Conteneur Applications - Copie/Applications/IT-Tools",
-    "docs/Conteneur Applications - Copie/Applications/Immich",
     "docs/Conteneur Applications - Copie/Alloy/présentation.md",
     "docs/Conteneur Applications/Alloy/présentation.md",
     "docs/Conteneur Applications/Authentik/présentation.md",
@@ -210,10 +200,6 @@
     "docs/Conteneur Applications/Applications/Passbolt/présentation.md",
     "docs/Conteneur Applications/Applications/IT-Tools/présentation.md",
     "docs/Conteneur Applications/Applications/Immich/présentation.md",
-    "docs/Conteneur Applications/Applications/BentoPDF/présentation.md",
-    "docs/Conteneur Applications/Applications/BentoPDF/présentation 1.md",
-    "docs/general/hardware.md",
-    "docs/Conteneur Applications/index.md",
-    "Sans titre.md"
+    "docs/Conteneur Applications/Applications/BentoPDF/présentation.md"
   ]
 }

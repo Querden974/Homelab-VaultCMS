@@ -1,20 +1,20 @@
 ---
 title: "Présentation"
-description: "Présentation de Grafana Alloy"
+description: "Présentation de Loki"
 ---
 
-## Qu'est-ce qu'Alloy ?
+## Qu'est-ce que Loki ?
 
-Alloy est un collecteur de télémétrie développé par Grafana Labs, basé sur le standard OpenTelemetry. Il centralise la collecte de métriques, de logs, de traces et de profils applicatifs, puis les redirige vers les bons outils de stockage et de visualisation (Prometheus/Mimir, Loki, Tempo, Grafana...).
+Loki est un système d'agrégation de logs développé par Grafana Labs. Contrairement aux solutions classiques comme Elasticsearch, il n'indexe pas le contenu complet des logs mais uniquement leurs métadonnées (labels), ce qui le rend beaucoup plus léger à faire tourner et à stocker.
 
 ## Rôle dans mon homelab
 
-Alloy me sert de point d'entrée unique pour toute l'observabilité de mon infrastructure. Plutôt que de déployer un agent différent pour chaque type de donnée (métriques, logs, traces), un seul pipeline Alloy collecte l'ensemble et l'achemine vers ma stack de supervision. Cela simplifie grandement la configuration et la maintenance de la collecte de données.
+Loki centralise les logs de l'ensemble de mes conteneurs et services. Il reçoit les flux collectés par Alloy et les rend consultables et corrélables directement dans Grafana, aux côtés des métriques Prometheus. Cela me permet de retrouver rapidement les logs pertinents lors du diagnostic d'un problème, sans avoir à me connecter à chaque conteneur individuellement.
 
 ## Fonctionnalités clés
 
-- Collecte unifiée des métriques, logs et traces
-- Compatible avec le standard OpenTelemetry
-- Configuration déclarative via un langage dédié (Alloy config)
-- Intégration native avec l'écosystème Grafana (Loki, Mimir, Tempo)
-- Faible empreinte en ressources, adapté à un usage homelab
+- Indexation par labels uniquement, faible coût en ressources et stockage
+- Langage de requête LogQL, proche de PromQL
+- Intégration native avec Grafana pour la visualisation
+- Compatible avec les agents de collecte OpenTelemetry (Alloy, Promtail)
+- Corrélation facile entre logs et métriques

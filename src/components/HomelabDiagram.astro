@@ -1,0 +1,177 @@
+---
+// src/components/HomelabDiagram.astro
+// Schéma d'architecture du homelab — s'adapte à la colonne de contenu Starlight,
+// aux thèmes clair/sombre et au mobile.
+const apps = [
+  ["Homarr", "Tableau de bord des services"],
+  ["Immich", "Photos & vidéos auto-hébergées"],
+  ["Passbolt CE", "Coffre-fort de mots de passe"],
+  ["BentoPDF", "Manipulation de fichiers PDF"],
+  ["It-Tools", "Boîte à outils pour l'admin"],
+  ["Dockhand", "Gestion des conteneurs Docker"],
+  ["Traefik Manager", "Édition des routes et middlewares"],
+  ["Alloy", "Collecte logs & métriques"],
+];
+const middlewares = [
+  ["Crowdsec", "Détection et bannissement d'IP"],
+  ["Authentik", "SSO / forward auth"],
+];
+const paths = [
+  ["Chemin public", "Internet → Traefik → Crowdsec → Authentik → app"],
+  ["Chemin privé", "Client → Wireguard → LAN → Proxmox & services"],
+  ["Supervision", "Alloy → logs conteneurs → observabilité"],
+];
+---
+
+<figure class="hl" role="group" aria-label="Schéma d'architecture du homelab">
+  <section class="hl-zone">
+    <header class="hl-head">
+      <h3>Accès</h3>
+      <span class="hl-tag">Entrée</span>
+    </header>
+    <div class="hl-grid hl-grid--2">
+      <article class="hl-card">
+        <h4>Internet / WAN</h4>
+        <p>HTTPS entrant sur les sous-domaines publiés</p>
+      </article>
+      <article class="hl-card hl-card--vpn">
+        <h4>Wireguard <span class="hl-chip">VPN</span></h4>
+        <p>Tunnel chiffré vers le LAN et l'administration</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="hl-arrow" aria-hidden="true">↓</div>
+
+  <section class="hl-zone hl-zone--host">
+    <header class="hl-head">
+      <h3>Proxmox VE</h3>
+      <span class="hl-tag hl-tag--solid">PCT 107 · LXC + Docker</span>
+    </header>
+
+    <div class="hl-stack">
+      <article class="hl-card hl-card--lead">
+        <h4>Traefik <span class="hl-muted">Reverse proxy</span></h4>
+        <p>Point d'entrée unique : routage par sous-domaine, TLS automatique, découverte des conteneurs Docker.</p>
+      </article>
+
+      <section class="hl-band hl-band--mw">
+        <h4 class="hl-band-title">Middlewares Traefik</h4>
+        <div class="hl-grid hl-grid--2">
+          {middlewares.map(([name, desc]) => (
+            <article class="hl-item"><h5>{name}</h5><p>{desc}</p></article>
+          ))}
+        </div>
+      </section>
+
+      <section class="hl-band hl-band--apps">
+        <h4 class="hl-band-title">Applications — conteneurs Docker</h4>
+        <div class="hl-grid hl-grid--2">
+          {apps.map(([name, desc]) => (
+            <article class="hl-item"><h5>{name}</h5><p>{desc}</p></article>
+          ))}
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <div class="hl-grid hl-grid--3">
+    {paths.map(([title, desc]) => (
+      <article class="hl-card hl-card--flat"><h5 class="hl-kicker">{title}</h5><p>{desc}</p></article>
+    ))}
+  </div>
+</figure>
+
+<style>
+  .hl {
+    --hl-vpn: light-dark(#5965c4, #7a86e8);
+    --hl-mw: light-dark(#c07a4e, #d68e5e);
+    --hl-app: light-dark(#2f8f6d, #4ab28a);
+    color-scheme: light dark;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-sm);
+  }
+  figure.hl :is(article, section, header, div, h3, h4, h5, p) {
+    margin: 0;
+  }
+  figure.hl :is(h3, h4, h5) {
+    font-weight: 600;
+    line-height: 1.3;
+    color: light-dark(#12172b, #e2e5f2);
+  }
+  figure.hl h3 { font-size: var(--sl-text-base); }
+  figure.hl :is(h4, h5) { font-size: var(--sl-text-sm); }
+  figure.hl p {
+    margin: 0.25rem 0 0;
+    color: light-dark(#525a7d, #a8aeca);
+    line-height: 1.5;
+  }
+  figure.hl a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  figure.hl a:hover { color: var(--hl-vpn); }
+
+  .hl-zone {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background: var(--sl-color-black);
+    overflow: hidden;
+  }
+  .hl-zone--host { border-color: color-mix(in oklab, var(--hl-vpn) 55%, transparent); background: color-mix(in oklab, var(--hl-vpn) 8%, var(--sl-color-black)); }
+
+  .hl-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+    background: var(--sl-color-gray-6);
+  }
+  .hl-zone--host .hl-head { border-color: color-mix(in oklab, var(--hl-vpn) 35%, transparent); background: transparent; }
+
+  figure.hl :is(.hl-tag, .hl-chip, .hl-muted, .hl-kicker) {
+    font-family: var(--__sl-font-mono, ui-monospace, monospace);
+    font-size: var(--sl-text-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: light-dark(#6a7196, #8b93b8);
+  }
+  .hl-tag--solid { padding: 0.15rem 0.45rem; border-radius: 0.25rem; background: var(--sl-color-gray-6); color: var(--sl-color-white); letter-spacing: 0.04em; text-transform: none; }
+  .hl-chip { padding: 0.1rem 0.35rem; border-radius: 0.25rem; background: color-mix(in oklab, var(--hl-vpn) 25%, transparent); color: var(--sl-color-white); }
+
+  .hl-stack { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem; }
+  .hl-grid { display: grid; gap: 0.6rem; padding: 0.9rem; }
+  .hl-band .hl-grid, .hl > .hl-grid { padding: 0; }
+  .hl-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hl-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .hl-card, .hl-item {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.4rem;
+    padding: 0.7rem 0.8rem;
+    background: var(--sl-color-black);
+  }
+  .hl-card--vpn { border-color: color-mix(in oklab, var(--hl-vpn) 55%, transparent); background: color-mix(in oklab, var(--hl-vpn) 12%, var(--sl-color-black)); }
+  .hl-card--lead { background: var(--sl-color-gray-6); }
+  .hl-card--flat { background: transparent; }
+
+  .hl-band { border: 1px solid; border-radius: 0.4rem; padding: 0.8rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .hl-band--mw { border-color: color-mix(in oklab, var(--hl-mw) 50%, transparent); background: color-mix(in oklab, var(--hl-mw) 10%, var(--sl-color-black)); }
+  .hl-band--apps { border-color: color-mix(in oklab, var(--hl-app) 50%, transparent); background: color-mix(in oklab, var(--hl-app) 10%, var(--sl-color-black)); }
+  .hl-band--mw .hl-item { border-color: color-mix(in oklab, var(--hl-mw) 40%, transparent); }
+  .hl-band--apps .hl-item { border-color: color-mix(in oklab, var(--hl-app) 40%, transparent); }
+  .hl-band-title { font-family: var(--__sl-font-mono, ui-monospace, monospace); font-size: var(--sl-text-xs); letter-spacing: 0.12em; text-transform: uppercase; }
+  .hl-band--mw .hl-band-title { color: var(--hl-mw); }
+  .hl-band--apps .hl-band-title { color: var(--hl-app); }
+
+  .hl-arrow { text-align: center; color: light-dark(#6a7196, #8b93b8); }
+
+  @media (max-width: 50rem) {
+    .hl-grid--2, .hl-grid--3 { grid-template-columns: minmax(0, 1fr); }
+    .hl-head { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  }
+</style>

@@ -1,20 +1,20 @@
 ---
 title: "Présentation"
-description: "Présentation de Grafana Alloy"
+description: "Présentation de Prometheus"
 ---
 
-## Qu'est-ce qu'Alloy ?
+## Qu'est-ce que Prometheus ?
 
-Alloy est un collecteur de télémétrie développé par Grafana Labs, basé sur le standard OpenTelemetry. Il centralise la collecte de métriques, de logs, de traces et de profils applicatifs, puis les redirige vers les bons outils de stockage et de visualisation (Prometheus/Mimir, Loki, Tempo, Grafana...).
+Prometheus est un système de monitoring et d'alerting open source, devenu la référence pour la collecte de métriques dans le monde du cloud natif. Il fonctionne selon un modèle "pull" : il interroge périodiquement des endpoints exposés par les services (`/metrics`) pour en récupérer les métriques.
 
 ## Rôle dans mon homelab
 
-Alloy me sert de point d'entrée unique pour toute l'observabilité de mon infrastructure. Plutôt que de déployer un agent différent pour chaque type de donnée (métriques, logs, traces), un seul pipeline Alloy collecte l'ensemble et l'achemine vers ma stack de supervision. Cela simplifie grandement la configuration et la maintenance de la collecte de données.
+Prometheus est le socle de la collecte de métriques de mon infrastructure. Il scrape régulièrement les endpoints exposés par mes conteneurs et exporters (node-exporter, cAdvisor, etc.), stocke ces métriques dans sa base de données temporelle, puis les met à disposition de Grafana pour la visualisation et de son moteur d'alerting pour la détection d'anomalies.
 
 ## Fonctionnalités clés
 
-- Collecte unifiée des métriques, logs et traces
-- Compatible avec le standard OpenTelemetry
-- Configuration déclarative via un langage dédié (Alloy config)
-- Intégration native avec l'écosystème Grafana (Loki, Mimir, Tempo)
-- Faible empreinte en ressources, adapté à un usage homelab
+- Modèle de collecte "pull" via scraping HTTP
+- Base de données de séries temporelles optimisée
+- Langage de requête PromQL puissant et flexible
+- Service discovery automatique (Docker, Kubernetes...)
+- Moteur d'alerting intégré (Alertmanager)
